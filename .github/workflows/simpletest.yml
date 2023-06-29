@@ -1,0 +1,23 @@
+name: simpleTest
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Compile and run hello.c
+      run: |
+       gcc hello.c -o hello
+       ./hello
+    
+    - name: Run wordtest.py
+      run: python wordtest.py
+
